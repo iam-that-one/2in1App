@@ -44,20 +44,22 @@ class NumberGuessActivity : AppCompatActivity() {
             clear.alpha = 0F
             tarace.clear()
             myRV.adapter?.notifyDataSetChanged()
+
         }
         add.setOnClickListener {
+
             ans = txt.text.toString()
             rand = Random.nextInt(1)
             if(ans == rand.toString()){
                 lbl1.text = "Guess the correct number [Unlocked] [${ans}]"
                 tarace.add("Your guss is ${ans}, You got it!! 😊")
-
+                myRV.smoothScrollToPosition(tarace.size - 1)
                 clear.alpha = 1F
 
             }else{
 
                 tarace.add("Sorry!! Wrong guess 😐")
-
+                myRV.smoothScrollToPosition(tarace.size - 1)
             }
             myRV.adapter?.notifyDataSetChanged()
             txt.text.clear()
