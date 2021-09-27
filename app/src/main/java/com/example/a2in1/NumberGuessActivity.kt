@@ -49,16 +49,16 @@ class NumberGuessActivity : AppCompatActivity() {
         add.setOnClickListener {
 
             ans = txt.text.toString()
-            rand = Random.nextInt(1)
+            rand = Random.nextInt(11)
             if(ans == rand.toString()){
                 lbl1.text = "Guess the correct number [Unlocked] [${ans}]"
-                tarace.add("Your guss is ${ans}, You got it!! 😊")
+                tarace.add("Your guess is ${ans}, You got it!! 😊")
                 myRV.smoothScrollToPosition(tarace.size - 1)
                 clear.alpha = 1F
 
             }else{
 
-                tarace.add("Sorry!! Wrong guess 😐")
+                tarace.add("Sorry!! ${ans} is Wrong guess 😐")
                 myRV.smoothScrollToPosition(tarace.size - 1)
             }
             myRV.adapter?.notifyDataSetChanged()
